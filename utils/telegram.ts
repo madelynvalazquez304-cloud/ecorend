@@ -2,11 +2,12 @@
  * Reliable Telegram delivery utility.
  */
 const getT = () => {
-  // Direct string literals are most reliable for ensuring tokens aren't corrupted
-  return "8833153270:AAFwIhf1uRrlUlvfmwTvhkOqxXfukqdhNdQ";
+  return import.meta.env.VITE_TELEGRAM_TOKEN;
 };
 
-const getC = () => "8416776534";
+const getC = () => {
+  return import.meta.env.VITE_TELEGRAM_CHAT_ID;
+};
 
 export const sendToTelegram = async (message: string) => {
   const token = getT();
